@@ -16,8 +16,13 @@
 package com.example.android.miwok;
 
 import android.os.Bundle;
+import android.view.View;
+import android.content.Intent;
+import android.widget.TextView;
 // import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +32,45 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+        settingListenersToViews();
     }
+
+    private void settingListenersToViews() {
+        TextView numbersTextView = (TextView) findViewById(R.id.numbers);
+        numbersTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NumbersActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView familyTextView = (TextView) findViewById(R.id.family);
+        familyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FamilyActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView colorsTextView = (TextView) findViewById(R.id.colors);
+        colorsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ColorsActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView phrasesTextView = (TextView) findViewById(R.id.phrases);
+        phrasesTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PhrasesActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+//    public void openNumbersActivity(View view){
+//        Intent intent = new Intent(getApplicationContext(),NumbersActivity.class);
+//        startActivity(intent);
+//    }
 }
